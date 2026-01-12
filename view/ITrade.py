@@ -1,7 +1,8 @@
-path_to_bot = ""
 import sys
-sys.path.append(path_to_bot + "view")
+import os
+import config
 
+sys.path.append(os.path.join(config.BOT_ROOT, "view"))
 import Interface
 import IChat
 from sikuli.Sikuli import *

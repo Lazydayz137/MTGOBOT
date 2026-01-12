@@ -7,12 +7,24 @@
 #used in controller to set time of transaction for recording
 from datetime import datetime
 import sys
-sys.path.append("c:/users/darkray16/desktop/my dropbox/mtgo bot")
+import os
+
+# Add the project root to the Python path, which is one level up from the script's directory.
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+# Add project subdirectories to the Python path.
+sys.path.append(os.path.join(project_root, "model"))
+sys.path.append(os.path.join(project_root, "view"))
+sys.path.append(os.path.join(project_root, "controller"))
+
+import config
 import model
 import view
 import controller
 
-exec(open("c:/users/darkray16/desktop/my dropbox/mtgo bot/ini.py", "rb").read())
+exec(open(os.path.join(config.BOT_ROOT, "ini.py"), "rb").read())
 
 
 classified_ad = "Human BUYING     Frost Titan [s4] | Inferno Titan [s3] | Grave Titan [s9] | Devastating Summons [s1] | Mox Opal [s9] | Contested Zone [s2]  Please PM me first"
